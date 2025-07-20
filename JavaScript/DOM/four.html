@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Example (Edit & Remove)</title>
+</head>
+<body style="background-color: black; color: aliceblue;">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+    function addLanguage(langName) {
+       const li =  document.createElement('li');
+       li.innerHTML = `${langName}`;
+       document.querySelector('.language').
+       appendChild(li);
+    }
+    addLanguage('Python');
+    addLanguage('Java');
+
+
+    // More optimized way to add the language and it is more faster than the above one. Hence use this one.
+    function addOtiLanguage(langName) {
+        const li = document.createElement('li');
+        // const addText = document.createTextNode(langName);
+        li.appendChild(document.createTextNode(langName));
+        document.querySelector('.language').appendChild(li);
+    }
+    addOtiLanguage('C++');
+    addOtiLanguage('C#');
+
+
+    // Edit
+    const secondLang = document.querySelector("li:nth-child(2)");
+    console.log(secondLang);
+    // secondLang.innerHTML = "React";
+    const newli = document.createElement('li');
+    console.log(newli);
+    newli.textContent = "Mojo";
+    secondLang.replaceWith(newli);
+
+
+    //edit
+    const firstLang = document.querySelector("li:first-child"); // this is how we select the first child
+    console.log(firstLang);
+    firstLang.outerHTML = "<li>TypeScript</li>";
+
+
+
+    //remove
+    const lastLang = document.querySelector("li:last-child");
+    console.log(lastLang);
+    lastLang.remove();
+
+</script>
+</html>
