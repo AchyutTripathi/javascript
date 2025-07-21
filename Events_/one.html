@@ -27,13 +27,56 @@
     //     alert("Owl clicked")
     // }
 
-    // jQuery - on
 
-    document.getElementById('owl').addEventListener('click', function(e){
-        console.log(e);
-    }, false)
+    // jQuery - on (event listener)
+
+
     // events which you have to know 
     // type, timestamp, defaultprevented, target, toElement, currentTarget, srcElement, clientX, clientY, screenX, screenY, altkey, ctrlkey, shiftkey, keyCode
+
+    // Event propogation
+    // 1. Bubbling - event bubbles up from the target element to the root element
+    // 2. Capturing - event starts from the root element and goes down to the target element
+
+
+
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside the ul");
+    // }, false) // true for capturing phase
+
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log("owl clicked");
+    //     e.stopPropagation(); // stops the event from bubbling up to the parent elements
+    // }, false); // true for capturing phase
+
+
+    // document.getElementById('google').addEventListener('click', function(e){
+    //     console.log("google clicked");
+    //     e.preventDefault(); // prevents the default action of the event, which is to navigate to the link
+    //     e.stopPropagation(); // stops the event from bubbling up to the parent elements
+    // }, false); // true for capturing phase
+
+
+
+
+
+
+
+
+
+    // goal :- when we click on the image it should disappear.
+    document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e.target.parentNode.tagName);
+        if (e.target.tagName === 'IMG') {
+            console.log(e.target.id)
+            let removeIt = e.target.parentNode;
+            removeIt.remove();
+        }
+    }, false)
+
+    
+    //Another method to remove :- removeIt.parentNode.removeChild(removeIt);
     
 </script>
 </html>

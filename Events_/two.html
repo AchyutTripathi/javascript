@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 1</title>
+</head>
+<body>
+    <h1>Chai aur Code</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    const sayAchyut = function() {
+        console.log("Achyut");
+    }
+
+    const chaangeText = function() {
+        document.querySelector('h1').innerHTML = "Achyut Tripathi"
+    }
+
+    // setTimeout is used to execute a function after a specified delay only once
+    const changeMe = setTimeout(chaangeText, 2000)
+
+    document.querySelector('#stop').addEventListener('click', function(){
+        // clearTimeout is used to stop the execution of a function scheduled by setTimeout
+        clearTimeout(changeMe);
+        console.log("Stoped")
+    })
+</script>
+</html>
